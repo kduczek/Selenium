@@ -18,37 +18,25 @@ public class BootstrapProgressBarTest {
     @Test
     public void simpleProgressBarTest() {
         hp.clickSimpleDialogButton();
-        hp.waitInSeconds(1);
 
-        Assertions.assertTrue(hp.isDisplayedSimpleProgressBar());
-
-        hp.waitInSeconds(2);
-
-        Assertions.assertFalse(hp.isDisplayedSimpleProgressBar());
+        Assertions.assertTrue(hp.waitForSimpleProgressBarAndCheckIfDisplayed());
+        Assertions.assertFalse(hp.waitForSimpleProgressBarDisappearAndCheckIfDisplayed());
     }
 
     @Test
     public void customMessageProgressBarTest() {
         hp.clickDialogCustomMessageButton();
-        hp.waitInSeconds(1);
 
-        Assertions.assertTrue(hp.isDisplayedCustomMessageProgressBar());
-
-        hp.waitInSeconds(3);
-
-        Assertions.assertFalse(hp.isDisplayedCustomMessageProgressBar());
+        Assertions.assertTrue(hp.waitForCustomProgressBarAndCheckIfDisplayed());
+        Assertions.assertFalse(hp.waitForCustomProgressBarDisappearAndCheckIfDisplayed());
     }
 
     @Test
     public void customSettingsProgressBarTest() {
         hp.clickDialogCustomSettingsButton();
-        hp.waitInSeconds(1);
 
-        Assertions.assertTrue(hp.isDisplayedCustomSettingsProgressBar());
-
-        hp.waitInSeconds(5);
-
-        Assertions.assertFalse(hp.isDisplayedCustomSettingsProgressBar());
+        Assertions.assertTrue(hp.waitForCustomSettingsProgressBarAndCheckIfDisplayed());
+        Assertions.assertFalse(hp.waitForCustomSettingsProgressBarDisappearAndCheckIfDisplayed());
     }
 
 

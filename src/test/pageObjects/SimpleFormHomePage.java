@@ -1,8 +1,15 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class SimpleFormHomePage extends PageObject {
+    private static final int TIMEOUT_IN_SECONDS = 5;
+
     @FindBy(id = "at-cv-lightbox-close")
     WebElement closeModal;
 
@@ -35,11 +42,8 @@ public class SimpleFormHomePage extends PageObject {
     }
 
     public boolean isModalDisplayed() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(TIMEOUT_IN_SECONDS));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("at-cv-lightbox-close")));
         return closeModal.isDisplayed();
     }
 
