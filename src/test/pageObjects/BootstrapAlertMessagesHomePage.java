@@ -2,8 +2,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class BootstrapAlertMessagesHomePage extends PageObject {
+    private static final int TIMEOUT_IN_SECONDS = 10;
+    WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(TIMEOUT_IN_SECONDS));
+
     //GREEN
     @FindBy(id = "autoclosable-btn-success")
     WebElement autocloseableSuccess;
@@ -156,6 +163,14 @@ public class BootstrapAlertMessagesHomePage extends PageObject {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public void waitToElementBeVisible(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitToElementDisappear(WebElement element) {
+        wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
 

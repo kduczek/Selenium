@@ -64,7 +64,7 @@ public class BootstrapAlertMessagesTest {
 
         Assertions.assertTrue(hp.isDisplayedAutocloseableSuccess());
 
-        hp.waitSeconds(6);
+        hp.waitToElementDisappear(hp.autocloseableSuccessDiv);
 
         Assertions.assertFalse(hp.isDisplayedAutocloseableSuccess());
     }
@@ -75,7 +75,7 @@ public class BootstrapAlertMessagesTest {
 
         Assertions.assertTrue(hp.isDisplayedAutocloseableWarning());
 
-        hp.waitSeconds(4);
+        hp.waitToElementDisappear(hp.autocloseableWarningDiv);
 
         Assertions.assertFalse(hp.isDisplayedAutocloseableWarning());
     }
@@ -86,7 +86,7 @@ public class BootstrapAlertMessagesTest {
 
         Assertions.assertTrue(hp.isDisplayedAutocloseableDanger());
 
-        hp.waitSeconds(6);
+        hp.waitToElementDisappear(hp.autocloseableDangerDiv);
 
         Assertions.assertFalse(hp.isDisplayedAutocloseableDanger());
     }
@@ -97,7 +97,7 @@ public class BootstrapAlertMessagesTest {
 
         Assertions.assertTrue(hp.isDisplayedAutocloseableInfo());
 
-        hp.waitSeconds(7);
+        hp.waitToElementDisappear(hp.autocloseableInfoDiv);
 
         Assertions.assertFalse(hp.isDisplayedAutocloseableInfo());
     }
@@ -130,7 +130,10 @@ public class BootstrapAlertMessagesTest {
         Assertions.assertTrue(hp.isDisplayedAutocloseableDanger());
         Assertions.assertTrue(hp.isDisplayedAutocloseableInfo());
 
-        hp.waitSeconds(7);
+        hp.waitToElementDisappear(hp.autocloseableSuccessDiv);
+        hp.waitToElementDisappear(hp.autocloseableWarningDiv);
+        hp.waitToElementDisappear(hp.autocloseableDangerDiv);
+        hp.waitToElementDisappear(hp.autocloseableInfoDiv);
 
         Assertions.assertFalse(hp.isDisplayedAutocloseableSuccess());
         Assertions.assertFalse(hp.isDisplayedAutocloseableWarning());
