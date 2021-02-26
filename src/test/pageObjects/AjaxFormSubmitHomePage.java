@@ -1,8 +1,15 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class AjaxFormSubmitHomePage extends PageObject {
+    private static final int TIMEOUT_IN_SECONDS = 5;
+    public static final String FORM_SUBMITED_SUCCESSFULLY = "Form submited Successfully!";
+
     @FindBy(name = "title")
     WebElement name;
 
@@ -34,11 +41,8 @@ public class AjaxFormSubmitHomePage extends PageObject {
     }
 
     public String waitForTheConfirmationAndReturnText() {
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        WebDriverWait wait = new WebDriverWait(browser, Duration.ofSeconds(TIMEOUT_IN_SECONDS));
+        wait.until(ExpectedConditions.textToBePresentInElement(submitInfo, FORM_SUBMITED_SUCCESSFULLY));
 
         return submitInfo.getText();
     }
