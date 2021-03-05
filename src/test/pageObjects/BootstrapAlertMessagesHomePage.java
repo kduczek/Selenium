@@ -157,18 +157,6 @@ public class BootstrapAlertMessagesHomePage extends PageObject {
         return autocloseableInfoDiv.isDisplayed();
     }
 
-    public void waitSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void waitToElementBeVisible(WebElement element) {
-        wait.until(ExpectedConditions.visibilityOf(element));
-    }
-
     public void waitToElementDisappear(WebElement element) {
         wait.until(ExpectedConditions.invisibilityOf(element));
     }

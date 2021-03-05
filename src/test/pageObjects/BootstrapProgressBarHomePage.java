@@ -68,19 +68,6 @@ public class BootstrapProgressBarHomePage extends PageObject {
         return progressBar.isDisplayed();
     }
 
-
-    public boolean isDisplayedCustomSettingsProgressBar() {
-        return progressBar.isDisplayed() && progressBar.getText().equals("Hello Mr. Alert !");
-    }
-
-    public void waitInSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
-
     public BootstrapProgressBarHomePage(WebDriver browser) {
         super(browser);
     }

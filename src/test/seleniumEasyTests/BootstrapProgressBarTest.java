@@ -45,5 +45,4 @@ public class BootstrapProgressBarTest {
         browser.manage().deleteAllCookies();
         browser.close();
     }
-
 }
